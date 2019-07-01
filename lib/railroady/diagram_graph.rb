@@ -108,7 +108,7 @@ class DiagramGraph
     end # case
     options = [options, custom_options].compact.reject{|o| o.empty?}.join(', ')
     if options.length == 0
-      return "\t#{quote(name)} as #{quote(name)}\n"
+      return "\tclass #{quote(name)} as #{noquote(name)}\n"
     else
       return "\t#{quote(name)} [#{options}]\n"
     end
@@ -137,6 +137,9 @@ class DiagramGraph
   # Quotes a class name
   def quote(name)
     ('"' + name.to_s + '"').gsub(":","")
+  end
+  def noquote(name)
+    name.to_s.gsub(":","")
   end
 
 end # class DiagramGraph
