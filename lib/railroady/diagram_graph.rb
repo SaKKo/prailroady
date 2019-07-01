@@ -55,7 +55,7 @@ class DiagramGraph
         result += "\t\tBorderColor Black\n"
         result += "\t\tArrowColor Black\n"
       result += "\t}\n"
-      result += "\thide members\n"
+      result += "\thide members\n" if !@show_label
       result += "\thide circle\n"
     result
   end
