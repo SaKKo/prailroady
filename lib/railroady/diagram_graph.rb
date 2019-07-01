@@ -107,7 +107,11 @@ class DiagramGraph
         return "subgraph cluster_#{name.downcase} {\n\tlabel = #{quote(name)}\n\t#{attributes.join("\n  ")}}"
     end # case
     options = [options, custom_options].compact.reject{|o| o.empty?}.join(', ')
-    return "\t#{quote(name)} [#{options}]\n"
+    if options.length == 0
+      return "\t#{quote(name)}\n"
+    else
+      return "\t#{quote(name)} [#{options}]\n"
+    end
   end # dot_node
 
   # Build a DOT graph edge
