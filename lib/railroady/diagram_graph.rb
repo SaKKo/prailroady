@@ -67,7 +67,7 @@ class DiagramGraph
 
   # Build a DOT graph node
   def dot_node(type, name, attributes = nil, custom_options = '')
-    options = "\n"
+    options = '\n'
     case type
       when 'model'
         options += attributes.sort_by { |s| @alphabetize ? s : nil }.join("\n")
@@ -87,7 +87,7 @@ class DiagramGraph
       when 'module'
         options += ""
       when 'aasm'
-        return "aasm: \n #{attributes.join("\n")}"
+        return "aasm: \\n #{attributes.join("\\n")}"
     end
     # options = [options, custom_options].compact.reject{|o| o.empty?}.join(', ')
     return "\tclass #{quote(name+options)} as #{noquote(name)}\n"
