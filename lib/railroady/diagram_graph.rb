@@ -90,7 +90,6 @@ class DiagramGraph
         return "aasm: \n #{attributes.join("\n")}"
     end
     # options = [options, custom_options].compact.reject{|o| o.empty?}.join(', ')
-    options = options.compact.reject{|o| o.empty?}.join('\n')
     return "\tclass #{quote(name+options)} as #{noquote(name)}\n"
   end # dot_node
 
