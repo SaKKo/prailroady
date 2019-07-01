@@ -108,7 +108,7 @@ class DiagramGraph
     end # case
     options = [options, custom_options].compact.reject{|o| o.empty?}.join(', ')
     if options.length == 0
-      return "\t#{quote(name)}\n"
+      return "\t#{quote(name)} as #{quote(name)}\n"
     else
       return "\t#{quote(name)} [#{options}]\n"
     end
@@ -116,35 +116,27 @@ class DiagramGraph
 
   # Build a DOT graph edge
   def dot_edge(type, from, to, name = '')
-    options =  name != '' ? "label=\"#{name}\", " : ''
-    edge_color = '"#%02X%02X%02X"' % [rand(255), rand(255), rand(255)]
-    suffix = ", dir=both color=#{edge_color}"
     ret = ""
     case type
       when 'one-one'
         ret = "\t#{quote(from)} -- #{quote(to)}\n"
-        options += 'arrowtail=odot, arrowhead=dot' + suffix
       when 'one-many'
         ret = "\t#{quote(from)} --|{ #{quote(to)}\n"
-        options += 'arrowtail=odot, arrowhead=crow' + suffix
       when 'many-many'
         ret = "\t#{quote(from)} }|--|{ #{quote(to)}\n"
-        options += "arrowtail=crow, arrowhead=crow" + suffix
       when 'belongs-to'
         ret = "\t#{quote(from)} }|--|{ #{quote(to)}\n"
-        options += "arrowtail=none, arrowhead=normal" + suffix
       when 'is-a'
         ret = "\t#{quote(from)} }|--|{ #{quote(to)}\n"
-        options += 'arrowhead="none", arrowtail="onormal"'
       when 'event'
         ret = "\t#{quote(from)} }|--|{ #{quote(to)}\n"
-        options += 'fontsize=10'
     end
     ret
-  end 
+  end # dot_edge
 
   # Quotes a class name
   def quote(name)
-    '"' + name.to_s + '"'
+    ('"' + name.to_s + '"').gsub(":","")
   end
+
 end # class DiagramGraph
