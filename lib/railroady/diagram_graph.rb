@@ -46,15 +46,24 @@ class DiagramGraph
 
   # Build DOT diagram header
   def dot_header
-    result = "digraph #{@diagram_type.downcase}_diagram {\n" \
-             "\tgraph[overlap=false, splines=true, bgcolor=\"none\"]\n"
-    result += dot_label if @show_label
+    result = "@startuml\n"
+      result += "skinparam linetype ortho\n"
+      result += "skinparam packageStyle rectangle\n"
+      result += "skinparam shadowing false\n"
+      result += "skinparam class {\n"
+        result += "BackgroundColor White\n"
+        result += "BorderColor Black\n"
+        result += "ArrowColor Black\n"
+      result += "}\n"
+      result += "hide members\n"
+      result += "hide circle\n"
+    # result += dot_label if @show_label
     result
   end
 
   # Build DOT diagram footer
   def dot_footer
-    "}\n"
+    "\n@enduml\n"
   end
 
   # Build diagram label
