@@ -11,7 +11,7 @@
 
 require 'rbconfig'
 
-module RailRoady
+module PrailRoady
   class RakeHelpers
     def self.format
       @@DIAGRAM_FORMAT ||= 'svg'
@@ -40,11 +40,11 @@ module RailRoady
 end
 
 namespace :diagram do
-  @MODELS_ALL         = RailRoady::RakeHelpers.full_path("models_complete.#{RailRoady::RakeHelpers.format}").freeze
-  @MODELS_BRIEF       = RailRoady::RakeHelpers.full_path("models_brief.#{RailRoady::RakeHelpers.format}").freeze
-  @CONTROLLERS_ALL    = RailRoady::RakeHelpers.full_path("controllers_complete.#{RailRoady::RakeHelpers.format}").freeze
-  @CONTROLLERS_BRIEF  = RailRoady::RakeHelpers.full_path("controllers_brief.#{RailRoady::RakeHelpers.format}").freeze
-  @SED                = RailRoady::RakeHelpers.sed
+  @MODELS_ALL         = PrailRoady::RakeHelpers.full_path("models_complete.#{PrailRoady::RakeHelpers.format}").freeze
+  @MODELS_BRIEF       = PrailRoady::RakeHelpers.full_path("models_brief.#{PrailRoady::RakeHelpers.format}").freeze
+  @CONTROLLERS_ALL    = PrailRoady::RakeHelpers.full_path("controllers_complete.#{PrailRoady::RakeHelpers.format}").freeze
+  @CONTROLLERS_BRIEF  = PrailRoady::RakeHelpers.full_path("controllers_brief.#{PrailRoady::RakeHelpers.format}").freeze
+  @SED                = PrailRoady::RakeHelpers.sed
 
   namespace :setup do
     desc 'Perform any setup needed for the gem'
@@ -61,28 +61,28 @@ namespace :diagram do
     task :complete do
       f = @MODELS_ALL
       puts "Generating #{f}"
-      sh "railroady -lamM | #{@SED} | dot -T#{RailRoady::RakeHelpers.format} > #{f}"
+      sh "prailroady -lamM | #{@SED} | dot -T#{PrailRoady::RakeHelpers.format} > #{f}"
     end
 
     desc 'Generates an abbreviated class diagram for all models.'
     task :brief do
       f = @MODELS_BRIEF
       puts "Generating #{f}"
-      sh "railroady -blamM | #{@SED} | dot -T#{RailRoady::RakeHelpers.format} > #{f}"
+      sh "prailroady -blamM | #{@SED} | dot -T#{PrailRoady::RakeHelpers.format} > #{f}"
     end
 
     desc 'Generates a class diagram for all models including those in engines'
     task :complete_with_engines do
       f = @MODELS_ALL
       puts "Generating #{f}"
-      sh "railroady -ilamzM | #{@SED} | dot -T#{RailRoady::RakeHelpers.format} > #{f}"
+      sh "prailroady -ilamzM | #{@SED} | dot -T#{PrailRoady::RakeHelpers.format} > #{f}"
     end
 
     desc 'Generates an abbreviated class diagram for all models including those in engines'
     task :brief_with_engines do
       f = @MODELS_BRIEF
       puts "Generating #{f}"
-      sh "railroady -bilamzM | #{@SED} | dot -T#{RailRoady::RakeHelpers.format} > #{f}"
+      sh "prailroady -bilamzM | #{@SED} | dot -T#{PrailRoady::RakeHelpers.format} > #{f}"
     end
   end
 
@@ -94,28 +94,28 @@ namespace :diagram do
     task :complete do
       f = @CONTROLLERS_ALL
       puts "Generating #{f}"
-      sh "railroady -lC | #{@SED} | neato -T#{RailRoady::RakeHelpers.format} > #{f}"
+      sh "prailroady -lC | #{@SED} | neato -T#{PrailRoady::RakeHelpers.format} > #{f}"
     end
 
     desc 'Generates an abbreviated class diagram for all controllers.'
     task :brief do
       f = @CONTROLLERS_BRIEF
       puts "Generating #{f}"
-      sh "railroady -blC | #{@SED} | neato -T#{RailRoady::RakeHelpers.format} > #{f}"
+      sh "prailroady -blC | #{@SED} | neato -T#{PrailRoady::RakeHelpers.format} > #{f}"
     end
 
     desc 'Generates a class diagram for all controllers including those in engines'
     task :complete_with_engines do
       f = @CONTROLLERS_ALL
       puts "Generating #{f}"
-      sh "railroady -ilC --engine-controllers | #{@SED} | neato -T#{RailRoady::RakeHelpers.format} > #{f}"
+      sh "prailroady -ilC --engine-controllers | #{@SED} | neato -T#{PrailRoady::RakeHelpers.format} > #{f}"
     end
 
     desc 'Generates an abbreviated class diagram for all controllers including those in engines.'
     task :brief_with_engines do
       f = @CONTROLLERS_BRIEF
       puts "Generating #{f}"
-      sh "railroady -bilC --engine-controllers | #{@SED} | neato -T#{RailRoady::RakeHelpers.format} > #{f}"
+      sh "prailroady -bilC --engine-controllers | #{@SED} | neato -T#{PrailRoady::RakeHelpers.format} > #{f}"
     end
   end
 

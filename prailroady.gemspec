@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'railroady/version'
+require 'prailroady/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'railroady'
-  spec.version       = RailRoady::VERSION
+  spec.name          = 'prailroady'
+  spec.version       = PrailRoady::VERSION
   spec.authors       = ['SaKKo']
   spec.description  = "Plantuml Ruby on Rails 3/4/5 model class diagram generator. Originally based on the 'preston/railroady' plugin and contributions of many others."
   spec.email        = ['saklism@gmail.com']
   spec.summary      = 'Ruby on Rails 3/4/5 model UML class diagram generator.'
-  spec.homepage      = 'http://github.com/sakko/railroady-plantuml'
+  spec.homepage      = 'http://github.com/sakko/prailroady'
   spec.license       = 'GPLv2'
 
   spec.files         = `git ls-files`.split("\n")

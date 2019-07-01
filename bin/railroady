@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-# RailRoady - RoR diagrams generator
+# PrailRoady - RoR diagrams generator
 # http://github.com/preston/railroady
 #
-#   RailRoady generates models and controllers diagrams in DOT language
+#   PrailRoady generates models and controllers diagrams in DOT language
 #   for a Rails v3 application.
 #
 # Copyright 2007-2008 - Javier Smaldone (http://www.smaldone.com.ar)
@@ -17,12 +17,12 @@
 #
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'railroady'
+require 'prailroady'
 
-APP_NAME       = 'railroady'
-APP_HUMAN_NAME = 'RailRoady'
-# APP_VERSION    = [RailRoady::VERSION::MAJOR, RailRoady::VERSION::MINOR, RailRoady::VERSION::PATCH]
-APP_VERSION    = RailRoady::VERSION
+APP_NAME       = 'prailroady'
+APP_HUMAN_NAME = 'PrailRoady'
+# APP_VERSION    = [PrailRoady::VERSION::MAJOR, PrailRoady::VERSION::MINOR, PrailRoady::VERSION::PATCH]
+APP_VERSION    = PrailRoady::VERSION
 COPYRIGHT      = 'Copyright (C) 2007-2008 Javier Smaldone, 2009 Peter Hoeg, 2010-2015 Preston Lee'
 
 options = OptionsStruct.new(app_name: APP_NAME, app_human_name: APP_HUMAN_NAME, app_version: APP_VERSION, copyright: COPYRIGHT)

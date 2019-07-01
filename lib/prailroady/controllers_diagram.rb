@@ -1,12 +1,12 @@
-# RailRoady - RoR diagrams generator
+# PrailRoady - RoR diagrams generator
 # http://railroad.rubyforge.org
 #
 # Copyright 2007-2008 - Javier Smaldone (http://www.smaldone.com.ar)
 # See COPYING for more details
 
-require 'railroady/app_diagram'
+require 'prailroady/app_diagram'
 
-# RailRoady controllers diagram
+# PrailRoady controllers diagram
 class ControllersDiagram < AppDiagram
   # as of Rails 2.3 the file is no longer application.rb but instead
   # application_controller.rb

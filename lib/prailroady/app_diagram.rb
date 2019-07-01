@@ -1,12 +1,12 @@
-# RailRoady - RoR diagrams generator
+# PrailRoady - RoR diagrams generator
 # http://railroad.rubyforge.org
 #
 # Copyright 2007-2008 - Javier Smaldone (http://www.smaldone.com.ar)
 # See COPYING for more details
 
-require 'railroady/diagram_graph'
+require 'prailroady/diagram_graph'
 
-# Root class for RailRoady diagrams
+# Root class for PrailRoady diagrams
 class AppDiagram
   def initialize(options = OptionsStruct.new)
     @options = options

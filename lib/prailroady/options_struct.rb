@@ -1,4 +1,4 @@
-# RailRoady - RoR diagrams generator
+# PrailRoady - RoR diagrams generator
 # http://railroad.rubyforge.org
 #
 # Copyright 2007-2008 - Javier Smaldone (http://www.smaldone.com.ar)
@@ -6,7 +6,7 @@
 
 require 'ostruct'
 
-# RailRoady command line options parser
+# PrailRoady command line options parser
 class OptionsStruct < OpenStruct
   require 'optparse'
 
@@ -38,7 +38,7 @@ class OptionsStruct < OpenStruct
                      xmi: false,
                      command: '',
                      config_file: 'config/environment',
-                     app_name: 'railroady', app_human_name: 'Railroady', app_version: '', copyright: '' }
+                     app_name: 'orailroady', app_human_name: 'PrailRoady', app_version: '', copyright: '' }
     super(init_options.merge(args))
   end # initialize
 

@@ -1,4 +1,4 @@
-# RailRoady - RoR diagrams generator
+# PrailRoady - RoR diagrams generator
 # http://railroad.rubyforge.org
 #
 # Copyright 2007-2008 - Javier Smaldone (http://www.smaldone.com.ar)
@@ -6,7 +6,7 @@
 
 # AASM code provided by Ana Nelson (http://ananelson.com/)
 
-require 'railroady/app_diagram'
+require 'prailroady/app_diagram'
 
 # Diagram for Acts As State Machine
 class AasmDiagram < AppDiagram

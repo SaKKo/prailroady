@@ -21,13 +21,14 @@ http://plantuml.com/download
 ## Install Atom Preview
 
 https://atom.io/packages/plantuml-viewer
+
 https://atom.io/packages/plantuml-preview
 
 ## Run generate
 
 ```bash
-railroady -o models.pu -M # only model name
-railroady -o models.pu -M -l # with attributes
+prailroady -o models.pu -M # only model name
+prailroady -o models.pu -M -l # with attributes
 ```
 
 Then open `models.pu` using atom preview or use online preview.

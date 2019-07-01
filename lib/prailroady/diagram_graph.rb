@@ -1,10 +1,10 @@
-# RailRoady - RoR diagrams generator
+# PrailRoady - RoR diagrams generator
 # http://railroad.rubyforge.org
 #
 # Copyright 2007-2008 - Javier Smaldone (http://www.smaldone.com.ar)
 # See COPYING for more details
 
-# RailRoady diagram structure
+# PrailRoady diagram structure
 class DiagramGraph
   def initialize
     @diagram_type = ''

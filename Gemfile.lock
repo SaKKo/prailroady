@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    railroady (1.5.3)
+    prailroady (1.5.3)
 
 GEM
   remote: https://rubygems.org/
@@ -26,8 +26,8 @@ DEPENDENCIES
   activesupport
   bundler
   minitest
-  railroady!
+  prailroady!
   rake
 
 BUNDLED WITH
-   1.15.1
+   1.16.6
