@@ -1,3 +1,7 @@
+# add gem to Gemfile
+
+`gem 'prailroady'`
+
 # Use online preview
 
 https://planttext.com/
