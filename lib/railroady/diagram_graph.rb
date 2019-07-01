@@ -106,23 +106,29 @@ class DiagramGraph
     options =  name != '' ? "label=\"#{name}\", " : ''
     edge_color = '"#%02X%02X%02X"' % [rand(255), rand(255), rand(255)]
     suffix = ", dir=both color=#{edge_color}"
+    ret = ""
     case type
       when 'one-one'
+        ret = "\t#{quote(from)} -- #{quote(to)}\n"
         options += 'arrowtail=odot, arrowhead=dot' + suffix
       when 'one-many'
+        ret = "\t#{quote(from)} --|{ #{quote(to)}\n"
         options += 'arrowtail=odot, arrowhead=crow' + suffix
       when 'many-many'
+        ret = "\t#{quote(from)} }|--|{ #{quote(to)}\n"
         options += "arrowtail=crow, arrowhead=crow" + suffix
       when 'belongs-to'
-           # following http://guides.rubyonrails.org/association_basics.html#the-belongs-to-association
-           options += "arrowtail=none, arrowhead=normal" + suffix
+        ret = "\t#{quote(from)} }|--|{ #{quote(to)}\n"
+        options += "arrowtail=none, arrowhead=normal" + suffix
       when 'is-a'
+        ret = "\t#{quote(from)} }|--|{ #{quote(to)}\n"
         options += 'arrowhead="none", arrowtail="onormal"'
       when 'event'
+        ret = "\t#{quote(from)} }|--|{ #{quote(to)}\n"
         options += 'fontsize=10'
     end
-    "\t#{quote(from)} -> #{quote(to)} [#{options}]\n"
-  end # dot_edge
+    ret
+  end 
 
   # Quotes a class name
   def quote(name)
