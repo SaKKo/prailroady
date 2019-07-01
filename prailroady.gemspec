@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email        = ['saklism@gmail.com']
   spec.summary      = 'Ruby on Rails 3/4/5 model UML class diagram generator.'
   spec.homepage      = 'http://github.com/sakko/prailroady'
-  spec.license       = 'GPLv2'
+  spec.license       = 'GPL-2.0'
 
   spec.files         = `git ls-files`.split("\n")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
