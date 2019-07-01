@@ -70,7 +70,7 @@ class DiagramGraph
     options = ''
     case type
       when 'model'
-        options += attributes.sort_by { |s| @alphabetize ? s : nil }.join("\n")
+        options += attributes.sort_by { |s| @alphabetize ? "\t\t#{s}" : nil }.join("\n")
       when 'model-brief'
         options += ""
       when 'class'
@@ -79,9 +79,9 @@ class DiagramGraph
         options += ""
       when 'controller'
         options += ""
-        options += attributes[:public].sort_by    { |s| @alphabetize ? s : nil }.join("\n")
-        options += attributes[:protected].sort_by { |s| @alphabetize ? s : nil }.join("\n")
-        options += attributes[:private].sort_by   { |s| @alphabetize ? s : nil }.join("\n")
+        options += attributes[:public].sort_by    { |s| @alphabetize ? "\t\t#{s}" : nil }.join("\n")
+        options += attributes[:protected].sort_by { |s| @alphabetize ? "\t\t#{s}" : nil }.join("\n")
+        options += attributes[:private].sort_by   { |s| @alphabetize ? "\t\t#{s}" : nil }.join("\n")
       when 'controller-brief'
         options += ""
       when 'module'
@@ -90,8 +90,8 @@ class DiagramGraph
         return "aasm: \\n #{attributes.join("\\n")}"
     end
     # options = [options, custom_options].compact.reject{|o| o.empty?}.join(', ')
-    options = "{\n#{options}\n}" if @show_label && options.length > 0
-    return "\tclass #{quote(name)} as #{noquote(name)} #{options}\n"
+    attr_options = "{\n#{options}\n\t}" if @show_label && options.length > 0
+    return "\tclass #{quote(name)} as #{noquote(name)} #{attr_options}\n"
   end # dot_node
 
   # Build a DOT graph edge
