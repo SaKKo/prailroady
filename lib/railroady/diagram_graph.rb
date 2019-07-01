@@ -70,7 +70,7 @@ class DiagramGraph
     options = ''
     case type
       when 'model'
-        options += attributes.sort_by { |s| @alphabetize ? "\t\t#{s}" : nil }.join("\n")
+        options += attributes.sort_by { |s| @alphabetize ? s : nil }.map{|s| "\t\t#{s}"}.join("\n")
       when 'model-brief'
         options += ""
       when 'class'
@@ -79,9 +79,9 @@ class DiagramGraph
         options += ""
       when 'controller'
         options += ""
-        options += attributes[:public].sort_by    { |s| @alphabetize ? "\t\t#{s}" : nil }.join("\n")
-        options += attributes[:protected].sort_by { |s| @alphabetize ? "\t\t#{s}" : nil }.join("\n")
-        options += attributes[:private].sort_by   { |s| @alphabetize ? "\t\t#{s}" : nil }.join("\n")
+        options += attributes[:public].sort_by    { |s| @alphabetize ? s : nil }.map{|s| "\t\t#{s}"}.join("\n")
+        options += attributes[:protected].sort_by { |s| @alphabetize ? s : nil }.map{|s| "\t\t#{s}"}.join("\n")
+        options += attributes[:private].sort_by   { |s| @alphabetize ? s : nil }.map{|s| "\t\t#{s}"}.join("\n")
       when 'controller-brief'
         options += ""
       when 'module'
