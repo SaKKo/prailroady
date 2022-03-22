@@ -50,9 +50,13 @@ class ModelsDiagram < AppDiagram
       begin
         class_name = filename.match(%r{.*/models/(.*).rb$})[1]
         class_name = class_name.camelize
-        # class_name = class_name.from 2 if class_name.start_with? '::'
+        class_name = class_name.from 2 if class_name.start_with? '::'
         class_name.constantize
         break
+      rescue NameError
+        class_name = filename.match(%r{.*/models/(.*).rb$})[1]
+        class_name = class_name.camelize.split("::").last
+        class_name.constantize
       rescue NoMethodError
         class_name = nil
         filename_end = filename.split('/')[2..-1]
