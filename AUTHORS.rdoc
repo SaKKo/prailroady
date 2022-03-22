@@ -18,6 +18,6 @@ http://railroady.prestonlee.com
 * Tim Harvey
 * Atli Christiansen
 * John Bintz (http://www.coswellproductions.com/)
-
+* Stefan Wrobel
 
 And of course, many thanks to the many patch submitters and testers that make this possible!
